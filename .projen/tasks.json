@@ -130,6 +130,78 @@
         }
       ]
     },
+    "integ:node-proxy-agent-asset:assert": {
+      "name": "integ:node-proxy-agent-asset:assert",
+      "description": "assert the snapshot of integration test 'node-proxy-agent-asset'",
+      "steps": [
+        {
+          "exec": "[ -d \"test/node-proxy-agent-asset.integ.snapshot\" ] || (echo \"No snapshot available for integration test 'node-proxy-agent-asset'. Run 'projen integ:node-proxy-agent-asset:deploy' to capture.\" && exit 1)"
+        },
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent-asset.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata -o test/.tmp/node-proxy-agent-asset.integ/assert.cdk.out > /dev/null"
+        },
+        {
+          "exec": "diff -r -x asset.* -x cdk.out -x manifest.json -x tree.json test/node-proxy-agent-asset.integ.snapshot/ test/.tmp/node-proxy-agent-asset.integ/assert.cdk.out/"
+        }
+      ]
+    },
+    "integ:node-proxy-agent-asset:deploy": {
+      "name": "integ:node-proxy-agent-asset:deploy",
+      "description": "deploy integration test 'node-proxy-agent-asset' and capture snapshot",
+      "steps": [
+        {
+          "exec": "rm -fr test/.tmp/node-proxy-agent-asset.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "cdk deploy --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent-asset.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata '**' --require-approval=never -o test/.tmp/node-proxy-agent-asset.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "rm -fr test/node-proxy-agent-asset.integ.snapshot"
+        },
+        {
+          "exec": "mv test/.tmp/node-proxy-agent-asset.integ/deploy.cdk.out test/node-proxy-agent-asset.integ.snapshot"
+        },
+        {
+          "spawn": "integ:node-proxy-agent-asset:destroy"
+        }
+      ]
+    },
+    "integ:node-proxy-agent-asset:destroy": {
+      "name": "integ:node-proxy-agent-asset:destroy",
+      "description": "destroy integration test 'node-proxy-agent-asset'",
+      "steps": [
+        {
+          "exec": "cdk destroy --app test/node-proxy-agent-asset.integ.snapshot '**' --no-version-reporting"
+        }
+      ]
+    },
+    "integ:node-proxy-agent-asset:snapshot": {
+      "name": "integ:node-proxy-agent-asset:snapshot",
+      "description": "update snapshot for integration test \"node-proxy-agent-asset\"",
+      "steps": [
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent-asset.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata -o test/node-proxy-agent-asset.integ.snapshot > /dev/null"
+        }
+      ]
+    },
+    "integ:node-proxy-agent-asset:watch": {
+      "name": "integ:node-proxy-agent-asset:watch",
+      "description": "watch integration test 'node-proxy-agent-asset' (without updating snapshots)",
+      "steps": [
+        {
+          "exec": "cdk watch --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent-asset.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata '**' -o test/.tmp/node-proxy-agent-asset.integ/deploy.cdk.out"
+        }
+      ]
+    },
+    "integ:snapshot-all": {
+      "name": "integ:snapshot-all",
+      "description": "update snapshot for all integration tests",
+      "steps": [
+        {
+          "spawn": "integ:node-proxy-agent-asset:snapshot"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -212,6 +284,9 @@
         },
         {
           "spawn": "eslint"
+        },
+        {
+          "spawn": "integ:node-proxy-agent-asset:assert"
         }
       ]
     },
