@@ -1,1 +1,1 @@
-export * from './node-proxy-agent-layer';
+export * from './node-proxy-agent-asset';
