@@ -293,9 +293,3 @@ Attribute which represents the S3 URL of this asset.
 ```typescript
 s3://bucket/key
 ```
-
-
-
-
-
-
