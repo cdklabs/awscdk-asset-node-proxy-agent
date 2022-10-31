@@ -4,8 +4,7 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3_assets from 'aws-cdk-lib/aws-s3-assets';
 import * as cr from 'aws-cdk-lib/custom-resources';
 
-import { ASSET_FILE, LAYER_SOURCE } from '../lib';
-import { hashFile } from './util';
+import { ASSET_FILE, LAYER_SOURCE_DIR } from '../lib';
 
 /**
  * Test verifies that AWS CLI is invoked successfully inside Lambda runtime.
@@ -15,7 +14,7 @@ const app = new cdk.App();
 const stack = new cdk.Stack(app, 'lambda-layer-node-proxy-agent-integ-stack');
 const asset = new s3_assets.Asset(stack, 'node-proxy-asset', {
   path: ASSET_FILE,
-  assetHash: hashFile(LAYER_SOURCE),
+  assetHash: cdk.FileSystem.fingerprint(LAYER_SOURCE_DIR),
 });
 const layer = new lambda.LayerVersion(stack, 'NodeProxyLayer', {
   code: lambda.Code.fromBucket(asset.bucket, asset.s3ObjectKey),
