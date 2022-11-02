@@ -8,7 +8,7 @@ import { ASSET_FILE, LAYER_SOURCE } from '../lib';
 import { hashFile } from './util';
 
 /**
- * Test verifies that AWS CLI is invoked successfully inside Lambda runtime.
+ * Test verifies that node-proxy-agent is invoked successfully inside Lambda runtime.
  */
 
 const app = new cdk.App();
