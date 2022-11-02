@@ -32,7 +32,7 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": ""
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5"
       },
       "steps": [
         {
@@ -130,6 +130,78 @@
         }
       ]
     },
+    "integ:node-proxy-agent:assert": {
+      "name": "integ:node-proxy-agent:assert",
+      "description": "assert the snapshot of integration test 'node-proxy-agent'",
+      "steps": [
+        {
+          "exec": "[ -d \"test/node-proxy-agent.integ.snapshot\" ] || (echo \"No snapshot available for integration test 'node-proxy-agent'. Run 'projen integ:node-proxy-agent:deploy' to capture.\" && exit 1)"
+        },
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata -o test/.tmp/node-proxy-agent.integ/assert.cdk.out > /dev/null"
+        },
+        {
+          "exec": "diff -r -x asset.* -x cdk.out -x manifest.json -x tree.json test/node-proxy-agent.integ.snapshot/ test/.tmp/node-proxy-agent.integ/assert.cdk.out/"
+        }
+      ]
+    },
+    "integ:node-proxy-agent:deploy": {
+      "name": "integ:node-proxy-agent:deploy",
+      "description": "deploy integration test 'node-proxy-agent' and capture snapshot",
+      "steps": [
+        {
+          "exec": "rm -fr test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "cdk deploy --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata '**' --require-approval=never -o test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "rm -fr test/node-proxy-agent.integ.snapshot"
+        },
+        {
+          "exec": "mv test/.tmp/node-proxy-agent.integ/deploy.cdk.out test/node-proxy-agent.integ.snapshot"
+        },
+        {
+          "spawn": "integ:node-proxy-agent:destroy"
+        }
+      ]
+    },
+    "integ:node-proxy-agent:destroy": {
+      "name": "integ:node-proxy-agent:destroy",
+      "description": "destroy integration test 'node-proxy-agent'",
+      "steps": [
+        {
+          "exec": "cdk destroy --app test/node-proxy-agent.integ.snapshot '**' --no-version-reporting"
+        }
+      ]
+    },
+    "integ:node-proxy-agent:snapshot": {
+      "name": "integ:node-proxy-agent:snapshot",
+      "description": "update snapshot for integration test \"node-proxy-agent\"",
+      "steps": [
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata -o test/node-proxy-agent.integ.snapshot > /dev/null"
+        }
+      ]
+    },
+    "integ:node-proxy-agent:watch": {
+      "name": "integ:node-proxy-agent:watch",
+      "description": "watch integration test 'node-proxy-agent' (without updating snapshots)",
+      "steps": [
+        {
+          "exec": "cdk watch --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata '**' -o test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
+        }
+      ]
+    },
+    "integ:snapshot-all": {
+      "name": "integ:snapshot-all",
+      "description": "update snapshot for all integration tests",
+      "steps": [
+        {
+          "spawn": "integ:node-proxy-agent:snapshot"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -145,6 +217,45 @@
       "steps": [
         {
           "spawn": "package:js"
+        },
+        {
+          "spawn": "package:java"
+        },
+        {
+          "spawn": "package:python"
+        },
+        {
+          "spawn": "package:dotnet"
+        },
+        {
+          "spawn": "package:go"
+        }
+      ]
+    },
+    "package:dotnet": {
+      "name": "package:dotnet",
+      "description": "Create dotnet language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target dotnet"
+        }
+      ]
+    },
+    "package:go": {
+      "name": "package:go",
+      "description": "Create go language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target go"
+        }
+      ]
+    },
+    "package:java": {
+      "name": "package:java",
+      "description": "Create java language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target java"
         }
       ]
     },
@@ -154,6 +265,15 @@
       "steps": [
         {
           "exec": "jsii-pacmak -v --target js"
+        }
+      ]
+    },
+    "package:python": {
+      "name": "package:python",
+      "description": "Create python language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target python"
         }
       ]
     },
@@ -183,7 +303,9 @@
       "name": "release",
       "description": "Prepare a release from \"main\" branch",
       "env": {
-        "RELEASE": "true"
+        "RELEASE": "true",
+        "MAJOR": "2",
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5"
       },
       "steps": [
         {
@@ -212,6 +334,9 @@
         },
         {
           "spawn": "eslint"
+        },
+        {
+          "spawn": "integ:node-proxy-agent:assert"
         }
       ]
     },
@@ -232,7 +357,7 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": ""
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5"
       },
       "steps": [
         {
@@ -251,19 +376,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor"
         },
         {
           "exec": "yarn install --check-files"
