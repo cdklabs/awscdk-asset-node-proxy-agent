@@ -7,7 +7,7 @@ import * as cr from 'aws-cdk-lib/custom-resources';
 import { ASSET_FILE, LAYER_SOURCE_DIR } from '../lib';
 
 /**
- * Test verifies that AWS CLI is invoked successfully inside Lambda runtime.
+ * Test verifies that node-proxy-agent is invoked successfully inside Lambda runtime.
  */
 
 const app = new cdk.App();
