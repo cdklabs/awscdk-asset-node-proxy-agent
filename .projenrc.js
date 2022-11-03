@@ -9,7 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Amazon Web Services',
   cdkVersion: '2.0.0',
   defaultReleaseBranch: 'main',
-  name: `@awscdk/asset-node-proxy-agent-v${SPEC_VERSION}`,
+  name: `@aws-cdk/asset-node-proxy-agent-v${SPEC_VERSION}`,
   repositoryUrl: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   homepage: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent#readme',
   autoApproveOptions: {
