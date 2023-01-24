@@ -56,7 +56,7 @@ project.deps.addDependency('aws-cdk-lib@^2.0.0', DependencyType.DEVENV);
 
 // Fix Docker on GitHub
 new WorkflowNoDockerPatch(project, { workflow: 'build' });
-new WorkflowNoDockerPatch(project, { workflow: 'release' });
+new WorkflowNoDockerPatch(project, { workflow: 'release', workflowName: 'release-node-proxy-agent-v5' });
 
 project.preCompileTask.exec('layer/build.sh');
 

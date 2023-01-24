@@ -15,18 +15,16 @@ export interface WorkflowDockerPatchOptions {
 
 export class WorkflowNoDockerPatch {
   public constructor(project: NodeProject, options: WorkflowDockerPatchOptions) {
-    const {
-      workflow,
-      workflowName = options.workflow,
-    } = options;
+    const workflow = options.workflow;
+    const workflowName = options.workflowName ?? options.workflow;
 
-    project.tryFindObjectFile(`.github/workflows/${workflow}.yml`)?.patch(
-      JsonPatch.add(`/jobs/${workflowName}/steps/`, {
+    project.tryFindObjectFile(`.github/workflows/${workflowName}.yml`)?.patch(
+      JsonPatch.add(`/jobs/${workflow}/steps/`, {
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
         with: { 'node-version': project.minNodeVersion ?? '14.x' },
       }),
-      JsonPatch.remove(`/jobs/${workflowName}/container`),
+      JsonPatch.remove(`/jobs/${workflow}/container`),
     );
   }
 }
