@@ -130,75 +130,22 @@
         }
       ]
     },
-    "integ:node-proxy-agent:assert": {
-      "name": "integ:node-proxy-agent:assert",
-      "description": "assert the snapshot of integration test 'node-proxy-agent'",
+    "integ": {
+      "name": "integ",
+      "description": "Run integration snapshot tests",
       "steps": [
         {
-          "exec": "[ -d \"test/node-proxy-agent.integ.snapshot\" ] || (echo \"No snapshot available for integration test 'node-proxy-agent'. Run 'projen integ:node-proxy-agent:deploy' to capture.\" && exit 1)"
-        },
-        {
-          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata -o test/.tmp/node-proxy-agent.integ/assert.cdk.out > /dev/null"
-        },
-        {
-          "exec": "diff -r -x asset.* -x cdk.out -x manifest.json -x tree.json test/node-proxy-agent.integ.snapshot/ test/.tmp/node-proxy-agent.integ/assert.cdk.out/"
+          "exec": "yarn integ-runner --language typescript"
         }
       ]
     },
-    "integ:node-proxy-agent:deploy": {
-      "name": "integ:node-proxy-agent:deploy",
-      "description": "deploy integration test 'node-proxy-agent' and capture snapshot",
+    "integ:update": {
+      "name": "integ:update",
+      "description": "Run and update integration snapshot tests",
       "steps": [
         {
-          "exec": "rm -fr test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
-        },
-        {
-          "exec": "cdk deploy --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata '**' --require-approval=never -o test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
-        },
-        {
-          "exec": "rm -fr test/node-proxy-agent.integ.snapshot"
-        },
-        {
-          "exec": "mv test/.tmp/node-proxy-agent.integ/deploy.cdk.out test/node-proxy-agent.integ.snapshot"
-        },
-        {
-          "spawn": "integ:node-proxy-agent:destroy"
-        }
-      ]
-    },
-    "integ:node-proxy-agent:destroy": {
-      "name": "integ:node-proxy-agent:destroy",
-      "description": "destroy integration test 'node-proxy-agent'",
-      "steps": [
-        {
-          "exec": "cdk destroy --app test/node-proxy-agent.integ.snapshot '**' --no-version-reporting"
-        }
-      ]
-    },
-    "integ:node-proxy-agent:snapshot": {
-      "name": "integ:node-proxy-agent:snapshot",
-      "description": "update snapshot for integration test \"node-proxy-agent\"",
-      "steps": [
-        {
-          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata -o test/node-proxy-agent.integ.snapshot > /dev/null"
-        }
-      ]
-    },
-    "integ:node-proxy-agent:watch": {
-      "name": "integ:node-proxy-agent:watch",
-      "description": "watch integration test 'node-proxy-agent' (without updating snapshots)",
-      "steps": [
-        {
-          "exec": "cdk watch --app \"ts-node -P tsconfig.dev.json test/node-proxy-agent.integ.ts\" --no-notices --no-version-reporting --no-asset-metadata --no-path-metadata '**' -o test/.tmp/node-proxy-agent.integ/deploy.cdk.out"
-        }
-      ]
-    },
-    "integ:snapshot-all": {
-      "name": "integ:snapshot-all",
-      "description": "update snapshot for all integration tests",
-      "steps": [
-        {
-          "spawn": "integ:node-proxy-agent:snapshot"
+          "exec": "yarn integ-runner --language typescript --update-on-failed",
+          "receiveArgs": true
         }
       ]
     },
@@ -283,6 +230,9 @@
       "steps": [
         {
           "spawn": "docgen"
+        },
+        {
+          "spawn": "rosetta:extract"
         }
       ]
     },
@@ -325,6 +275,15 @@
         }
       ]
     },
+    "rosetta:extract": {
+      "name": "rosetta:extract",
+      "description": "Test rosetta extract",
+      "steps": [
+        {
+          "exec": "yarn --silent jsii-rosetta extract"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
@@ -337,7 +296,7 @@
           "spawn": "eslint"
         },
         {
-          "spawn": "integ:node-proxy-agent:assert"
+          "spawn": "integ"
         }
       ]
     },

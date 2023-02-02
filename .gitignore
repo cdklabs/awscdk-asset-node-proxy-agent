@@ -51,12 +51,4 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
-test/.tmp
-test/node-proxy-agent.integ.snapshot/asset.*
-test/node-proxy-agent.integ.snapshot/**/asset.*
-test/node-proxy-agent.integ.snapshot/cdk.out
-test/node-proxy-agent.integ.snapshot/**/cdk.out
-test/node-proxy-agent.integ.snapshot/manifest.json
-test/node-proxy-agent.integ.snapshot/**/manifest.json
-test/node-proxy-agent.integ.snapshot/tree.json
-test/node-proxy-agent.integ.snapshot/**/tree.json
+.jsii.tabl.json
