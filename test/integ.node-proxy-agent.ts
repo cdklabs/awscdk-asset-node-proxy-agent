@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { IntegTest } from '@aws-cdk/integ-tests-alpha';
 import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3_assets from 'aws-cdk-lib/aws-s3-assets';
@@ -36,4 +37,7 @@ new cdk.CustomResource(stack, 'CustomResourceNode14', {
   serviceToken: provider.serviceToken,
 });
 
-app.synth();
+new IntegTest(app, 'integ-test', {
+  testCases: [stack],
+  stackUpdateWorkflow: false,
+});
