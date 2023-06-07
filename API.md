@@ -18,7 +18,7 @@ via the CDK `Asset` construct.
 Usage:
 
 ```ts
-import { ASSET_FILE, LAYER_SOURCE_DIR } from '@aws-cdk/asset-node-proxy-agent';
+import { ASSET_FILE, LAYER_SOURCE_DIR } from '@aws-cdk/asset-node-proxy-agent-v5';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3_assets from 'aws-cdk-lib/aws-s3-assets';
 import { FileSystem } from 'aws-cdk-lib';
