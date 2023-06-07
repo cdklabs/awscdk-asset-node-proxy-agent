@@ -1,5 +1,5 @@
 import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types';
-import { DependencyType, javascript } from 'projen';
+import { DependencyType } from 'projen';
 
 // the version of proxy-agent that this branch supports
 const SPEC_VERSION = '5';
@@ -15,12 +15,8 @@ const project = new CdklabsConstructLibrary({
   name: `@aws-cdk/asset-node-proxy-agent-v${SPEC_VERSION}`,
   repositoryUrl: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   homepage: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent#readme',
-  autoApproveOptions: {
-    allowedUsernames: ['aws-cdk-automation', 'dependabot[bot]'],
-  },
   majorVersion: 2,
   stability: 'stable',
-  npmAccess: javascript.NpmAccess.PUBLIC,
   enablePRAutoMerge: true,
   minNodeVersion: '16.0.0',
   workflowNodeVersion: '16.x',
