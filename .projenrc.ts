@@ -16,10 +16,8 @@ const project = new CdklabsConstructLibrary({
   repositoryUrl: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   homepage: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent#readme',
   autoApproveOptions: {
-    allowedUsernames: ['aws-cdk-automation'],
-    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['aws-cdk-automation', 'dependabot[bot]'],
   },
-  autoApproveUpgrades: true,
   majorVersion: 2,
   stability: 'stable',
   npmAccess: javascript.NpmAccess.PUBLIC,
