@@ -1,13 +1,13 @@
-import { awscdk, DependencyType } from 'projen';
-import { NpmAccess } from 'projen/lib/javascript';
-import { WorkflowNoDockerPatch } from './projenrc/workflow-no-docker-patch';
+import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types';
+import { DependencyType } from 'projen';
 
 // the version of proxy-agent that this branch supports
 const SPEC_VERSION = '5';
 const releaseWorkflowName = `release-node-proxy-agent-v${SPEC_VERSION}`;
 
-const project = new awscdk.AwsCdkConstructLibrary({
+const project = new CdklabsConstructLibrary({
   projenrcTs: true,
+  private: false,
   author: 'Amazon Web Services',
   authorAddress: 'aws-cdk-dev@amazon.com',
   cdkVersion: '2.0.0',
@@ -15,13 +15,15 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: `@aws-cdk/asset-node-proxy-agent-v${SPEC_VERSION}`,
   repositoryUrl: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   homepage: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent#readme',
-  autoApproveOptions: {
-    allowedUsernames: ['aws-cdk-automation'],
-    secret: 'GITHUB_TOKEN',
-  },
-  autoApproveUpgrades: true,
   majorVersion: 2,
-  npmAccess: NpmAccess.PUBLIC,
+  stability: 'stable',
+  enablePRAutoMerge: true,
+  minNodeVersion: '16.0.0',
+  workflowNodeVersion: '16.x',
+  setNodeEngineVersion: false,
+  devDeps: [
+    'cdklabs-projen-project-types',
+  ],
   releaseTagPrefix: `node-proxy-agent-v${SPEC_VERSION}`,
   releaseWorkflowName: releaseWorkflowName,
   publishToPypi: {
@@ -53,32 +55,7 @@ project.deps.removeDependency('constructs', DependencyType.PEER);
 project.deps.addDependency('constructs@^10.0.5', DependencyType.DEVENV);
 project.deps.removeDependency('aws-cdk-lib', DependencyType.PEER);
 project.deps.addDependency('aws-cdk-lib@^2.0.0', DependencyType.DEVENV);
-project.deps.addDependency('@aws-cdk/integ-runner@latest', DependencyType.DEVENV);
-project.deps.addDependency('@aws-cdk/integ-tests-alpha@latest', DependencyType.DEVENV);
-
-// Fix Docker on GitHub
-new WorkflowNoDockerPatch(project, { workflow: 'build' });
-new WorkflowNoDockerPatch(project, { workflow: 'release', workflowName: 'release-node-proxy-agent-v5' });
 
 project.preCompileTask.exec('layer/build.sh');
 
-const integSnapshotTask = project.addTask('integ', {
-  description: 'Run integration snapshot tests',
-  exec: 'yarn integ-runner --language typescript',
-});
-
-project.addTask('integ:update', {
-  description: 'Run and update integration snapshot tests',
-  exec: 'yarn integ-runner --language typescript --update-on-failed',
-  receiveArgs: true,
-});
-
-const rosettaTask = project.addTask('rosetta:extract', {
-  description: 'Test rosetta extract',
-  exec: 'yarn --silent jsii-rosetta extract',
-});
-
-project.testTask.spawn(integSnapshotTask);
-project.postCompileTask.spawn(rosettaTask);
-project.addGitIgnore('.jsii.tabl.json');
 project.synth();
