@@ -153,7 +153,8 @@
       "description": "Run integration snapshot tests",
       "steps": [
         {
-          "exec": "yarn integ-runner --language typescript"
+          "exec": "yarn integ-runner --language typescript",
+          "receiveArgs": true
         }
       ]
     },
@@ -298,7 +299,7 @@
       "description": "Test rosetta extract",
       "steps": [
         {
-          "exec": "yarn --silent jsii-rosetta extract"
+          "exec": "yarn --silent jsii-rosetta extract --strict"
         }
       ]
     },
@@ -307,7 +308,7 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --updateSnapshot",
+          "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
           "receiveArgs": true
         },
         {
@@ -354,19 +355,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii,@aws-cdk/integ-tests-alpha'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii,@aws-cdk/integ-tests-alpha'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii,@aws-cdk/integ-tests-alpha'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii,@aws-cdk/integ-tests-alpha'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii,@aws-cdk/integ-tests-alpha'"
         },
         {
           "exec": "yarn install --check-files"
@@ -379,6 +380,30 @@
         },
         {
           "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "upgrade-cdklabs-projen-project-types": {
+      "name": "upgrade-cdklabs-projen-project-types",
+      "description": "upgrade cdklabs-projen-project-types",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "yarn upgrade npm-check-updates"
+        },
+        {
+          "exec": "npm-check-updates --filter=cdklabs-projen-project-types --upgrade"
+        },
+        {
+          "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade cdklabs-projen-project-types"
+        },
+        {
+          "exec": "npx projen"
         }
       ]
     },
