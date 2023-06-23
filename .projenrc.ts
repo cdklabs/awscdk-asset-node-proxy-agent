@@ -49,6 +49,13 @@ const project = new CdklabsConstructLibrary({
   },
 });
 
+const packageJson = project.tryFindObjectFile('package.json');
+packageJson?.addOverride('jsiiRosetta', {
+  exampleDependencies: {
+    'aws-cdk-lib': '^2.0.0',
+  },
+});
+
 // We only need aws-cdk-lib and constructs for testing. Neither library is used
 // in the public API.
 project.deps.removeDependency('constructs', DependencyType.PEER);
