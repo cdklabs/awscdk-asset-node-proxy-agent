@@ -56,6 +56,13 @@ project.deps.addDependency('constructs@^10.0.5', DependencyType.DEVENV);
 project.deps.removeDependency('aws-cdk-lib', DependencyType.PEER);
 project.deps.addDependency('aws-cdk-lib@^2.0.0', DependencyType.DEVENV);
 
+project.package.addField('jsiiRosetta', {
+  exampleDependencies: {
+    'aws-cdk-lib': '^2.0.0',
+    'constructs': '^10.0.5',
+  },
+});
+
 project.preCompileTask.exec('layer/build.sh');
 
 project.synth();
