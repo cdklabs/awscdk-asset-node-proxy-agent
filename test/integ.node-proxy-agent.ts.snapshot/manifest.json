@@ -1,5 +1,5 @@
 {
-  "version": "29.0.0",
+  "version": "32.0.0",
   "artifacts": {
     "lambda-layer-node-proxy-agent-integ-stack.assets": {
       "type": "cdk:asset-manifest",
@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/11585b88caa63699ae46b56dc64acf21178b0ed386c46e34586428339052da5f.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/af556a3c4f506dbda53bf96d8067af6a8ede1d7c864665463f5eee51c98020a2.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -67,6 +67,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "ProviderNode14frameworkonEventD778512E"
+          }
+        ],
+        "/lambda-layer-node-proxy-agent-integ-stack/DefaultCrNodeVersionMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DefaultCrNodeVersionMap"
           }
         ],
         "/lambda-layer-node-proxy-agent-integ-stack/CustomResourceNode14/Default": [
