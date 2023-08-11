@@ -2,7 +2,7 @@ import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types';
 import { DependencyType } from 'projen';
 
 // the version of proxy-agent that this branch supports
-const SPEC_VERSION = '5';
+const SPEC_VERSION = '6';
 const releaseWorkflowName = `release-node-proxy-agent-v${SPEC_VERSION}`;
 
 const project = new CdklabsConstructLibrary({

@@ -7,7 +7,7 @@
     ".github/workflows/auto-merge.yml",
     ".github/workflows/build.yml",
     ".github/workflows/pull-request-lint.yml",
-    ".github/workflows/release-node-proxy-agent-v5.yml",
+    ".github/workflows/release-node-proxy-agent-v6.yml",
     ".github/workflows/upgrade-cdklabs-projen-project-types-main.yml",
     ".github/workflows/upgrade-main.yml",
     ".gitignore",

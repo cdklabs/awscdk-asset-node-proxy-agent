@@ -38,7 +38,7 @@ junit.xml
 !/.github/workflows/build.yml
 /dist/changelog.md
 /dist/version.txt
-!/.github/workflows/release-node-proxy-agent-v5.yml
+!/.github/workflows/release-node-proxy-agent-v6.yml
 !/.github/workflows/upgrade-main.yml
 !/.github/pull_request_template.md
 !/.npmrc
