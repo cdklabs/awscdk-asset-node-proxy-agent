@@ -32,7 +32,7 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5",
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v6",
         "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'"
       },
       "steps": [
@@ -275,7 +275,7 @@
       "env": {
         "RELEASE": "true",
         "MAJOR": "2",
-        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5"
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v6"
       },
       "steps": [
         {
@@ -337,7 +337,7 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": "node-proxy-agent-v5",
+        "RELEASE_TAG_PREFIX": "node-proxy-agent-v6",
         "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'"
       },
       "steps": [

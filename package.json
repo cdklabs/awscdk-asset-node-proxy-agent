@@ -1,5 +1,5 @@
 {
-  "name": "@aws-cdk/asset-node-proxy-agent-v5",
+  "name": "@aws-cdk/asset-node-proxy-agent-v6",
   "repository": {
     "type": "git",
     "url": "https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git"
@@ -129,23 +129,23 @@
     "outdir": "dist",
     "targets": {
       "java": {
-        "package": "software.amazon.awscdk.cdk.asset.node.proxy.agent.v5",
+        "package": "software.amazon.awscdk.cdk.asset.node.proxy.agent.v6",
         "maven": {
           "groupId": "software.amazon.awscdk",
-          "artifactId": "cdk-asset-node-proxy-agent-v5"
+          "artifactId": "cdk-asset-node-proxy-agent-v6"
         }
       },
       "python": {
-        "distName": "aws-cdk.asset-node-proxy-agent-v5",
-        "module": "aws_cdk.asset_node_proxy_agent_v5"
+        "distName": "aws-cdk.asset-node-proxy-agent-v6",
+        "module": "aws_cdk.asset_node_proxy_agent_v6"
       },
       "dotnet": {
-        "namespace": "Amazon.CDK.Asset.NodeProxyAgentV5",
-        "packageId": "Amazon.CDK.Asset.NodeProxyAgentV5"
+        "namespace": "Amazon.CDK.Asset.NodeProxyAgentV6",
+        "packageId": "Amazon.CDK.Asset.NodeProxyAgentV6"
       },
       "go": {
         "moduleName": "github.com/cdklabs/awscdk-asset-node-proxy-agent-go",
-        "packageName": "nodeproxyagentv5"
+        "packageName": "nodeproxyagentv6"
       }
     },
     "tsc": {
