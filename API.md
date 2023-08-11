@@ -13,12 +13,12 @@ This module bundles the NPM dependency [`proxy-agent`](https://www.npmjs.com/pac
 as a local asset. It exposes constants `ASSET_FILE` and `LAYER_SOURCE_DIR` that can be consumed
 via the CDK `Asset` construct.
 
-> - proxy-agent Version: 5.0.0
+> - proxy-agent Version: 6.3.0
 
 Usage:
 
 ```ts
-import { ASSET_FILE, LAYER_SOURCE_DIR } from '@aws-cdk/asset-node-proxy-agent-v5';
+import { ASSET_FILE, LAYER_SOURCE_DIR } from '@aws-cdk/asset-node-proxy-agent-v6';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3_assets from 'aws-cdk-lib/aws-s3-assets';
 import { FileSystem } from 'aws-cdk-lib';
