@@ -9,8 +9,8 @@ WORKDIR /tmp
 # tools
 #
 
-RUN yum update -y \
-    && yum install -y zip
+RUN dnf update -y \
+    && dnf install -y zip
 
 #
 # install nodejs dependencies: proxy-agent
