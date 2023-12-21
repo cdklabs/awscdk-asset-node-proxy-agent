@@ -18,8 +18,6 @@ const project = new CdklabsConstructLibrary({
   majorVersion: 2,
   stability: 'stable',
   enablePRAutoMerge: true,
-  minNodeVersion: '16.0.0',
-  workflowNodeVersion: '16.x',
   setNodeEngineVersion: false,
   devDeps: [
     'cdklabs-projen-project-types',
