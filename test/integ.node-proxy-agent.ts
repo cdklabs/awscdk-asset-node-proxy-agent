@@ -26,7 +26,7 @@ const provider = new cr.Provider(stack, 'ProviderNode14', {
   onEventHandler: new lambda.Function(stack, 'Lambda$Node14', {
     code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-handler')),
     handler: 'index.handler',
-    runtime: lambda.Runtime.NODEJS_14_X,
+    runtime: lambda.Runtime.NODEJS_20_X,
     layers: [layer],
     memorySize: 512,
     timeout: cdk.Duration.seconds(30),
