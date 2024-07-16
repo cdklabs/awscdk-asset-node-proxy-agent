@@ -1,5 +1,5 @@
-var ProxyAgent = require('proxy-agent');
+const proxyAgent = require('proxy-agent');
 
 exports.handler = (_) => {
-  new ProxyAgent();
+  new proxyAgent.ProxyAgent();
 };
