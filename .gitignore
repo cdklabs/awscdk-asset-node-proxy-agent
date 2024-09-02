@@ -47,7 +47,6 @@ junit.xml
 !/.eslintrc.json
 .jsii
 tsconfig.json
-!/API.md
 .jsii.tabl.json
 !/rosetta/default.ts-fixture
 !/.github/workflows/auto-merge.yml

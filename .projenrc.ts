@@ -45,6 +45,7 @@ const project = new CdklabsConstructLibrary({
     gitUserEmail: 'aws-cdk@amazon.com',
     githubTokenSecret: 'PROJEN_GITHUB_TOKEN',
   },
+  docgen: false,
 });
 
 // We only need aws-cdk-lib and constructs for testing. Neither library is used
