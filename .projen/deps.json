@@ -55,11 +55,6 @@
       "type": "build"
     },
     {
-      "name": "jsii-docgen",
-      "version": "^10.5.0",
-      "type": "build"
-    },
-    {
       "name": "jsii-pacmak",
       "type": "build"
     },

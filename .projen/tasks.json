@@ -102,15 +102,6 @@
         }
       ]
     },
-    "docgen": {
-      "name": "docgen",
-      "description": "Generate API.md from .jsii manifest",
-      "steps": [
-        {
-          "exec": "jsii-docgen -o API.md"
-        }
-      ]
-    },
     "eject": {
       "name": "eject",
       "description": "Remove projen from the project",
@@ -255,9 +246,6 @@
       "name": "post-compile",
       "description": "Runs after successful compilation",
       "steps": [
-        {
-          "spawn": "docgen"
-        },
         {
           "spawn": "rosetta:extract"
         }
@@ -404,7 +392,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha aws-cdk-lib constructs"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha aws-cdk-lib constructs"
         },
         {
           "exec": "npx projen"
