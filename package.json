@@ -2,7 +2,7 @@
   "name": "@aws-cdk/asset-node-proxy-agent-v6",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws/asset-node-proxy-agent-v6.git"
+    "url": "https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git"
   },
   "scripts": {
     "build": "npx projen build",

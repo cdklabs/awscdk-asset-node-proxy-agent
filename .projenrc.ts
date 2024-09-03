@@ -13,6 +13,7 @@ const project = new CdklabsConstructLibrary({
   cdkVersion: '2.0.0',
   defaultReleaseBranch: 'main',
   name: `@aws-cdk/asset-node-proxy-agent-v${SPEC_VERSION}`,
+  repository: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   repositoryUrl: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent.git',
   homepage: 'https://github.com/cdklabs/awscdk-asset-node-proxy-agent#readme',
   majorVersion: 2,
