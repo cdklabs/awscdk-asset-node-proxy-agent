@@ -30,4 +30,4 @@ RUN cd /opt \
     && ls -alh /layer.zip;
 
 WORKDIR /
-ENTRYPOINT [ "/bin/bash" ]
+CMD [ "sleep 60" ]
