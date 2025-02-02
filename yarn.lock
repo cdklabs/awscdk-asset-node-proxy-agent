@@ -45,9 +45,9 @@
     "@cdklabs/tskb" "^0.0.3"
 
 "@aws-cdk/cloud-assembly-schema@^39.2.0":
-  version "39.2.10"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-39.2.10.tgz#c638375f3ca3efd73cf4faa8309499f56650e729"
-  integrity sha512-TpMEalAybKtRKoKUsJsg1Jp27jIaQUwwjNniZEVLDRDn/ATEMBkcTnUOSbCePSk5fJNmp5wHew0Z03eNxDsjkQ==
+  version "39.2.11"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-39.2.11.tgz#97b692f3e00e7e68dfb2890457a89c9e0edd2946"
+  integrity sha512-/iDXQtxtqKOuUpds51GK/neVzq/UdxLWuGgLs01HdA30xOunVbAe+CAExvHPw0/h2qlfaEkJRpAxZ0Ch6gJnJQ==
   dependencies:
     jsonschema "~1.4.1"
     semver "^7.7.0"
@@ -5569,9 +5569,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250131"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250131.tgz#da81dbe6821f52db8c00af47fb6207bdb81ab82d"
-  integrity sha512-q7nLABAsnnq3BdqOdWnRGVhe7Gv3QkditzT6YMfWpKHsZoJ1TVo+C4ZCZHK4fCuu2vHYUwV0zUUsEZZXdnxB2w==
+  version "5.8.0-dev.20250201"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250201.tgz#e9d08ad125fc0687ce4a4f4a916a21ca4b4620f8"
+  integrity sha512-dH6JX5ZdOLme/jasEkBV2/HbhOp5RuYxeMasdzndYrC3HVpSSoU/OEIiBRl1+2zzhRLkAjYknZtbvm6EW+Qadw==
 
 typescript@~5.2:
   version "5.2.2"
