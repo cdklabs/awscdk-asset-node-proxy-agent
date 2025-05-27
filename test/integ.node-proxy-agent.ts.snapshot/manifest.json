@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/53887a2ef6a3e4495b468f7da8a5cf0df21ec549cf46d82ea955c0bc9e56687f.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c5b931f5a0f7a47a90322477834b295a50f726c223d9e33edcef55ffc16e84cc.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -273,15 +273,6 @@
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
-        ],
-        "ProviderNode20frameworkonEventinlinePolicyAddedToExecutionRole04EEEEDDF": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "ProviderNode20frameworkonEventinlinePolicyAddedToExecutionRole04EEEEDDF",
-            "trace": [
-              "!!DESTRUCTIVE_CHANGES: WILL_DESTROY"
-            ]
-          }
         ]
       },
       "displayName": "lambda-layer-node-proxy-agent-integ-stack"
@@ -341,5 +332,5 @@
       }
     }
   },
-  "minimumCliVersion": "2.1016.0"
+  "minimumCliVersion": "2.1016.1"
 }
