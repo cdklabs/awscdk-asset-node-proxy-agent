@@ -72,6 +72,25 @@
     "LambdaNode20ServiceRole93B8ABD5"
    ]
   },
+  "LambdaNode20LogGroupAA1AB08B": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "LambdaNode200FF1743A"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 731
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
+  },
   "ProviderNode20frameworkonEventServiceRoleEB7337BF": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -176,6 +195,10 @@
      }
     },
     "Handler": "framework.onEvent",
+    "LoggingConfig": {
+     "ApplicationLogLevel": "FATAL",
+     "LogFormat": "JSON"
+    },
     "Role": {
      "Fn::GetAtt": [
       "ProviderNode20frameworkonEventServiceRoleEB7337BF",
@@ -197,6 +220,25 @@
     "ProviderNode20frameworkonEventServiceRoleDefaultPolicy076E9926",
     "ProviderNode20frameworkonEventServiceRoleEB7337BF"
    ]
+  },
+  "ProviderNode20frameworkonEventLogGroupF5C30CA0": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "ProviderNode20frameworkonEvent47509F44"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 731
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
   },
   "CustomResourceNode20": {
    "Type": "AWS::CloudFormation::CustomResource",
@@ -253,6 +295,9 @@
    "ap-southeast-5": {
     "value": "nodejs22.x"
    },
+   "ap-southeast-6": {
+    "value": "nodejs22.x"
+   },
    "ap-southeast-7": {
     "value": "nodejs22.x"
    },
@@ -293,6 +338,9 @@
     "value": "nodejs22.x"
    },
    "eu-west-3": {
+    "value": "nodejs22.x"
+   },
+   "eusc-de-east-1": {
     "value": "nodejs22.x"
    },
    "il-central-1": {
