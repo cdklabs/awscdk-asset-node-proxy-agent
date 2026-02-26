@@ -38,6 +38,7 @@ const project = new CdklabsConstructLibrary({
   publishToNuget: {
     dotNetNamespace: `Amazon.CDK.Asset.NodeProxyAgentV${SPEC_VERSION}`,
     packageId: `Amazon.CDK.Asset.NodeProxyAgentV${SPEC_VERSION}`,
+    trustedPublishing: false, // uses a token still
   },
   publishToGo: {
     moduleName: 'github.com/cdklabs/awscdk-asset-node-proxy-agent-go',
