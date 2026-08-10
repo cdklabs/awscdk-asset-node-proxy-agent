@@ -16,7 +16,7 @@
       }
     },
     "567403c932503e76c2c64078a5e14fb13dce457f7b3be80fabeaba90d0187389": {
-      "displayName": "Lambda$Node20/Code",
+      "displayName": "Lambda$Node22/Code",
       "source": {
         "path": "asset.567403c932503e76c2c64078a5e14fb13dce457f7b3be80fabeaba90d0187389",
         "packaging": "zip"
@@ -30,7 +30,7 @@
       }
     },
     "e16ffb3b34af185b8b30c88fdb19faa13b6c42bb38580485c4e84b384ee48b63": {
-      "displayName": "ProviderNode20/framework-onEvent/Code",
+      "displayName": "ProviderNode22/framework-onEvent/Code",
       "source": {
         "path": "asset.e16ffb3b34af185b8b30c88fdb19faa13b6c42bb38580485c4e84b384ee48b63",
         "packaging": "zip"
@@ -43,16 +43,16 @@
         }
       }
     },
-    "628f0807c3c8ec680f70dc0b8eed7b6f36dda251b59fd2b4ac8b3e33a88fa30d": {
+    "46ee6375fd7a62437ee8dd1f865bf56a701d78f3a3b3d2c3dad2d1e706990624": {
       "displayName": "lambda-layer-node-proxy-agent-integ-stack Template",
       "source": {
         "path": "lambda-layer-node-proxy-agent-integ-stack.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "current_account-current_region-0229450d": {
+        "current_account-current_region-bdee9411": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "628f0807c3c8ec680f70dc0b8eed7b6f36dda251b59fd2b4ac8b3e33a88fa30d.json",
+          "objectKey": "46ee6375fd7a62437ee8dd1f865bf56a701d78f3a3b3d2c3dad2d1e706990624.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }
