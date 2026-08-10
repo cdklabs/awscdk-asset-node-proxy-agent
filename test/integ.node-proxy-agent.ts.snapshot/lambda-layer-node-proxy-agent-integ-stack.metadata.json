@@ -8,7 +8,7 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -31,7 +31,7 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/CustomResourceNode20": [
+  "/lambda-layer-node-proxy-agent-integ-stack/CustomResourceNode22": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": "*"
@@ -58,20 +58,19 @@
       "type": "aws:cdk:warning",
       "data": "objectVersion is not defined for S3Code.fromBucket(). The lambda will not be updated automatically if the code in the bucket is updated. This is because CDK/Cloudformation does not track changes on the source S3 Bucket. It is recommended to either use S3Code.fromAsset() instead or set objectVersion. [ack: @aws-cdk/aws-lambda:codeFromBucketObjectVersionNotSpecified]",
       "trace": [
-        "Annotations.addMessage (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/node_modules/aws-cdk-lib/core/lib/annotations.js:1:3441)",
-        "Annotations.addWarningV2 (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2129)",
-        "Function.fromBucket (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/node_modules/aws-cdk-lib/aws-lambda/lib/code.js:1:2457)",
-        "Object.<anonymous> (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/test/integ.node-proxy-agent.ts:21:21)",
-        "Module._compile (node:internal/modules/cjs/loader:1730:14)",
-        "Module.m._compile (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/node_modules/ts-node/src/index.ts:1618:23)",
-        "node:internal/modules/cjs/loader:1895:10",
-        "Object.require.extensions.<computed> [as .ts] (/local/home/ozelali/oncall-investigations/awscdk-asset-node-proxy-agent-fix/node_modules/ts-node/src/index.ts:1621:12)",
-        "Module.load (node:internal/modules/cjs/loader:1465:32)",
-        "Function._load (node:internal/modules/cjs/loader:1282:12)",
-        "TracingChannel.traceSync (node:diagnostics_channel:322:14)",
-        "wrapModuleLoad (node:internal/modules/cjs/loader:235:24)",
-        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)",
-        "node:internal/main/run_main_module:36:49"
+        "Annotations.addMessage (/private/tmp/npa-fix/node_modules/aws-cdk-lib/core/lib/annotations.js:1:3506)",
+        "Annotations.addWarningV2 (/private/tmp/npa-fix/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2194)",
+        "Code.fromBucket (/private/tmp/npa-fix/node_modules/aws-cdk-lib/aws-lambda/lib/code.js:1:2457)",
+        "Object.<anonymous> (/private/tmp/npa-fix/test/integ.node-proxy-agent.ts:21:21)",
+        "Module._compile (node:internal/modules/cjs/loader:1872:14)",
+        "Module.m._compile (/private/tmp/npa-fix/node_modules/ts-node/src/index.ts:1618:23)",
+        "node:internal/modules/cjs/loader:2003:10",
+        "Object.require.extensions.<computed> [as .ts] (/private/tmp/npa-fix/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1594:32)",
+        "Module._load (node:internal/modules/cjs/loader:1396:12)",
+        "wrapModuleLoad (node:internal/modules/cjs/loader:255:19)",
+        "Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+        "node:internal/main/run_main_module:33:47"
       ]
     }
   ],
@@ -81,7 +80,7 @@
       "data": "NodeProxyLayerE4CF2B61"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/ServiceRole": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/ServiceRole": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -97,13 +96,13 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "LambdaNode200FF1743A"
+      "data": "LambdaNode2291AB592E"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/LogGroup": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/LogGroup": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -111,7 +110,7 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -141,31 +140,31 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/CustomResourceNode20/Default": [
+  "/lambda-layer-node-proxy-agent-integ-stack/CustomResourceNode22/Default": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "CustomResourceNode20"
+      "data": "CustomResourceNode22"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/ServiceRole/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/ServiceRole/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "LambdaNode20ServiceRole93B8ABD5"
+      "data": "LambdaNode22ServiceRole30C58FAF"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/Code/AssetBucket": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/Code/AssetBucket": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": "*"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node20/LogGroup/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/Lambda$Node22/LogGroup/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "LambdaNode20LogGroupAA1AB08B"
+      "data": "LambdaNode22LogGroup251AE4EC"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/ServiceRole": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/ServiceRole": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -213,13 +212,13 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ProviderNode20frameworkonEvent47509F44"
+      "data": "ProviderNode22frameworkonEventF2006F27"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/LogGroup": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/LogGroup": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": {
@@ -227,13 +226,13 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/ServiceRole/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/ServiceRole/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ProviderNode20frameworkonEventServiceRoleEB7337BF"
+      "data": "ProviderNode22frameworkonEventServiceRole50502437"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/ServiceRole/DefaultPolicy": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/ServiceRole/DefaultPolicy": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": "*"
@@ -271,22 +270,22 @@
       }
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/Code/AssetBucket": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/Code/AssetBucket": [
     {
       "type": "aws:cdk:analytics:construct",
       "data": "*"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/LogGroup/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/LogGroup/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ProviderNode20frameworkonEventLogGroupF5C30CA0"
+      "data": "ProviderNode22frameworkonEventLogGroup8457C098"
     }
   ],
-  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode20/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+  "/lambda-layer-node-proxy-agent-integ-stack/ProviderNode22/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ProviderNode20frameworkonEventServiceRoleDefaultPolicy076E9926"
+      "data": "ProviderNode22frameworkonEventServiceRoleDefaultPolicy7AAFDC07"
     }
   ]
 }

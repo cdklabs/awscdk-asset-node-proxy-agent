@@ -22,18 +22,18 @@ const layer = new lambda.LayerVersion(stack, 'NodeProxyLayer', {
   description: '/opt/nodejs/node_modules/proxy-agent',
 });
 
-const provider = new cr.Provider(stack, 'ProviderNode20', {
-  onEventHandler: new lambda.Function(stack, 'Lambda$Node20', {
+const provider = new cr.Provider(stack, 'ProviderNode22', {
+  onEventHandler: new lambda.Function(stack, 'Lambda$Node22', {
     code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-handler')),
     handler: 'index.handler',
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_22_X,
     layers: [layer],
     memorySize: 512,
     timeout: cdk.Duration.seconds(30),
   }),
 });
 
-new cdk.CustomResource(stack, 'CustomResourceNode20', {
+new cdk.CustomResource(stack, 'CustomResourceNode22', {
   serviceToken: provider.serviceToken,
 });
 
