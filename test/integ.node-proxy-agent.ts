@@ -37,7 +37,16 @@ new cdk.CustomResource(stack, 'CustomResourceNode22', {
   serviceToken: provider.serviceToken,
 });
 
-new IntegTest(app, 'integ-test', {
+const integ = new IntegTest(app, 'integ-test', {
   testCases: [stack],
   stackUpdateWorkflow: false,
+});
+
+// The custom resource above is the assertion: its handler fails the deployment
+// if the layer can't be loaded. That leaves the assertion stack with no
+// resources, which CloudFormation Validate reports as F0001.
+const assertionStack = integ.node.findChild('DefaultTest').node.findChild('DeployAssert');
+cdk.Validations.of(assertionStack).acknowledge({
+  id: 'CloudFormation-Validate::F0001',
+  reason: 'This test has no deploy-time assertions, so the assertion stack is empty on purpose',
 });
